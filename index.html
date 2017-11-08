@@ -9,28 +9,32 @@
 <body>
 <script>
 function testDrop() {
-    tries=document.getElementById("percentage").value;
-    percentage=document.getElementById("tries").value;;
-
+    tries=parseInt(document.getElementById("tries").value);
+    percentage=parseFloat(document.getElementById("percentage").value);
     trovato=false;
     for (i=0;i<tries;i++) {
         r = new Random();
-        trovato=r.bool(percentage);
-        if (trovato) {
-            document.getElementById("result").innerHtml="ITEM DROPPED ! with percentage: "+(d*100)+" at try: "+(i+1);
+        d=r.real(0.0, 100.0, true);
+        if (d<=percentage) {
+            document.getElementById("result").innerHTML="ITEM DROPPED ! <br>with percentage: "+d+" <br>at try: "+(i+1);
+            trovato=true;
             break;
         }
     }
-
     if (!trovato)
-        document.getElementById("result").innerHtml="YOU'RE UNLUKY!";
+        document.getElementById("result").innerHTML="YOU'RE UNLUKY!";
 }
 </script>
 
 Percentage: <input id="percentage" type="number" step="0.01">
-Tries: <input id="tries" type="number">
+<br>
+<br>
+Tries:      <input id="tries" type="number">
+<br>
+<br>
 <button onclick="testDrop()">LOOT!</button>
-
+<br>
+<br>
 Result: <span id="result"></span>
 </body>
 </html>
