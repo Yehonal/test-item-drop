@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>JS Bin</title>
+  <title>Test Item Drop</title>
   <script src="random.min.js"></script>
 </head>
 <body>
@@ -15,7 +15,7 @@ function testDrop() {
     trovato=false;
     for (i=0;i<tries;i++) {
         r = new Random();
-        trovato=r.bool(pecentuale_uscita);
+        trovato=r.bool(percentage);
         if (trovato) {
             document.getElementById("result").innerHtml="ITEM DROPPED ! with percentage: "+(d*100)+" at try: "+(i+1);
             break;
